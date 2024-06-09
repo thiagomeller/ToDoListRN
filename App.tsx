@@ -1,20 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from "react-native";
+import AppRoutes from "./src/routes/app.routes";
+import { NavigationContainer } from "@react-navigation/native";
+import { PaperProvider } from "react-native-paper";
+import openDB from "./src/service/sqlfunction";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <PaperProvider>
+        <View style={{ flex: 1 }}>
+          <AppRoutes />
+        </View>
+      </PaperProvider>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
